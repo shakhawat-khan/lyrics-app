@@ -1,29 +1,18 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:music_lyrics/appBar.dart';
 
-import 'body.dart';
+import 'search/login_screen.dart';
 
 void main() {
   HttpOverrides.global = new MyHttpOverrides();
   runApp(MaterialApp(
+    title: 'route',
+    initialRoute: '/',
+    routes: {'/': (context) => LoginScreen()},
     debugShowCheckedModeBanner: false,
     theme: ThemeData(brightness: Brightness.dark),
-    home: MyApp(),
   ));
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(),
-      body: Body(),
-    );
-  }
 }
 
 class MyHttpOverrides extends HttpOverrides {
